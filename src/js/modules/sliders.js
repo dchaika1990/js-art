@@ -1,4 +1,5 @@
-const sliders = (slides, dir, prev, next) => {
+const sliders = (options = {}) => {
+    const {slides, dir, prev, next, animationSpeed = 5000, animation = 'slideIn'} = options;
     let slideIndex = 1;
     let paused = false;
     const items = document.querySelectorAll(slides);
@@ -27,13 +28,13 @@ const sliders = (slides, dir, prev, next) => {
 
         prevBtn.addEventListener('click', () => {
             plusSlides(-1);
-            items[slideIndex - 1].classList.remove('slideInLeft');
-            items[slideIndex - 1].classList.add('slideInRight');
+            items[slideIndex - 1].classList.remove(animation + 'Left');
+            items[slideIndex - 1].classList.add(animation + 'Right');
         })
         nextBtn.addEventListener('click', () => {
             plusSlides(1);
-            items[slideIndex - 1].classList.remove('slideInRight');
-            items[slideIndex - 1].classList.add('slideInLeft');
+            items[slideIndex - 1].classList.remove(animation + 'Right');
+            items[slideIndex - 1].classList.add(animation + 'Left');
         })
     } catch (e) {}
     
@@ -41,15 +42,15 @@ const sliders = (slides, dir, prev, next) => {
         if (dir === 'vertical') {
             paused = setInterval(()=> {
                 plusSlides(1);
-                items[slideIndex - 1].classList.remove('slideInUp');
-                items[slideIndex - 1].classList.add('slideInDown');
-            }, 3000);
+                items[slideIndex - 1].classList.remove(animation + 'Up');
+                items[slideIndex - 1].classList.add(animation + 'Down');
+            }, animationSpeed);
         } else {
             paused = setInterval(()=> {
                 plusSlides(1);
-                items[slideIndex - 1].classList.remove('slideInLeft');
-                items[slideIndex - 1].classList.add('slideInRight');
-            }, 3000);
+                items[slideIndex - 1].classList.remove(animation + 'Left');
+                items[slideIndex - 1].classList.add(animation + 'Right');
+            }, animationSpeed);
         }
     }
 

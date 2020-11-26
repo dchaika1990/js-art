@@ -1725,3 +1725,8 @@ h4 {
     width: 25rem;
   }
 }
+
+
+.slider{
+  overflow: hidden;
+}
