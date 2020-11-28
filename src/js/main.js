@@ -6,6 +6,7 @@ import checkLengthRequiredInputs from "./modules/checkLengthRequiredInputs";
 import showMoreStyles from "./modules/showMoreStyles";
 import calc from "./modules/calc";
 import forms from "./modules/forms";
+import filter from "./modules/filter";
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
@@ -39,4 +40,5 @@ window.addEventListener('DOMContentLoaded', () => {
         calcState
     );
     forms(calcState);
+    filter();
 })
