@@ -1,12 +1,9 @@
-import checkNumInputs from './checkNumImputs';
-import closeAllModals from './closeAllModals';
+import {postData} from '../services/requests'
 
 const forms = () => {
     const form = document.querySelectorAll('form');
     const inputs = document.querySelectorAll('input');
     const upload = document.querySelectorAll('[name="upload"]');
-
-    // checkNumInputs('input[name="user_phone"]');
 
     const message = {
         loading: 'Загрузка...',
@@ -21,15 +18,6 @@ const forms = () => {
       designer: 'assets/server.php',
       question: 'assets/question.php',
     };
-
-    const postData = async (url, data) => {
-        let res = await fetch(url, {
-            method: 'post',
-            body: data
-        });
-
-        return await res.text()
-    }
 
     const clearInputs = () => {
         inputs.forEach( item => item.value = '' );

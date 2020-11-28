@@ -4,6 +4,7 @@ import forms from "./modules/forms";
 import mask from "./modules/mask";
 import checkTextInputs from "./modules/checkTextInputs";
 import checkLengthRequiredInputs from "./modules/checkLengthRequiredInputs";
+import showMoreStyles from "./modules/showMoreStyles";
 
 window.addEventListener('DOMContentLoaded', () => {
     modals();
@@ -24,4 +25,5 @@ window.addEventListener('DOMContentLoaded', () => {
     checkTextInputs('[name="name"]');
     checkTextInputs('[name="message"]');
     checkLengthRequiredInputs();
+    showMoreStyles('.button-styles','#styles .row');
 })
