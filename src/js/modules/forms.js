@@ -1,6 +1,7 @@
 import {postData} from '../services/requests'
+import clearState from "./cleareState";
 
-const forms = () => {
+const forms = (state) => {
     const form = document.querySelectorAll('form');
     const inputs = document.querySelectorAll('input');
     const upload = document.querySelectorAll('[name="upload"]');
@@ -62,6 +63,12 @@ const forms = () => {
             let api = item.closest('.popup-design') || item.classList.contains('calc_form')
                 ? path.designer : path.question;
 
+            if (item.classList.contains('calc_form')) {
+                for (let key in state) {
+                    formData.append(key, state[key])
+                }
+            }
+
             postData(api, formData)
                 .then(res => {
                     console.log(api)
@@ -75,6 +82,7 @@ const forms = () => {
                 })
                 .finally(() => {
                     clearInputs();
+                    clearState(state);
                     setTimeout(() => {
                         statusMessage.remove();
                         item.style.display = 'block';
