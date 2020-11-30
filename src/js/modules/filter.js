@@ -22,9 +22,7 @@ const filter = () => {
         hide(no);
 
         if (markType) {
-            markType.forEach(mark => {
-                show(mark);
-            })
+            markType.forEach(mark => show(mark))
         } else {
             show(no);
         }
